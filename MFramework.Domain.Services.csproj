@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6913CC39-3F55-4F60-A25F-2FB43C463D39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MFramework.Domain.Services</RootNamespace>
+    <AssemblyName>MFramework.Domain.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\packages\Common.Logging.2.2.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\..\packages\Common.Logging.Core.2.2.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=7.1.3000.2254, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\ReSharper.Annotations.7.1.3.130415\lib\net\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\MFramework.Common.Proxy\dependencies\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Channels" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MFrameworkServiceLocator.cs" />
+    <Compile Include="Configuration\DefaultStateConfiguration.cs" />
+    <Compile Include="Configuration\DefaultUnitOfWorkConfiguration.cs" />
+    <Compile Include="Configuration\IContainerAdapter.cs" />
+    <Compile Include="Configuration\IDataConfiguration.cs" />
+    <Compile Include="Configuration\INCommonConfig.cs" />
+    <Compile Include="Configuration\IStateConfiguration.cs" />
+    <Compile Include="Configuration\IUnitOfWorkConfiguration.cs" />
+    <Compile Include="Configuration\MFrameworkConfig.cs" />
+    <Compile Include="Context\IContext.cs" />
+    <Compile Include="Context\IInstanceContext.cs" />
+    <Compile Include="Context\Impl\Context.cs" />
+    <Compile Include="Context\Impl\InstanceContextWrapper.cs" />
+    <Compile Include="Context\Impl\OperationContextWrapper.cs" />
+    <Compile Include="Context\Impl\ServiceHostWrapper.cs" />
+    <Compile Include="Context\IOperationContext.cs" />
+    <Compile Include="Context\IServiceHost.cs" />
+    <Compile Include="Repository\Criteria\ICriterion.cs" />
+    <Compile Include="Repository\IFetchingStrategy.cs" />
+    <Compile Include="Repository\ILinqProvider.cs" />
+    <Compile Include="Transactions\Impl\TransactionManager.cs" />
+    <Compile Include="Transactions\Impl\TransactionScopeHelper.cs" />
+    <Compile Include="Transactions\Impl\UnitOfWorkSettings.cs" />
+    <Compile Include="Transactions\Impl\UnitOfWorkTransaction.cs" />
+    <Compile Include="Repository\InMemory\InMemoryRepository.cs" />
+    <Compile Include="Repository\Select\IOrderByClause.cs" />
+    <Compile Include="Repository\IQueryableRepository.cs" />
+    <Compile Include="Repository\IReadRepository.cs" />
+    <Compile Include="Repository\IReadRepositoryWithTypedId.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\ISelectableRepository.cs" />
+    <Compile Include="Transactions\ITransactionManager.cs" />
+    <Compile Include="Transactions\IUnitOfWork.cs" />
+    <Compile Include="Transactions\IUnitOfWorkFactory.cs" />
+    <Compile Include="Transactions\IUnitOfWorkScope.cs" />
+    <Compile Include="Repository\IWriteRepository.cs" />
+    <Compile Include="Repository\Criteria\IQuery.cs" />
+    <Compile Include="Repository\Criteria\IQueryBuilder.cs" />
+    <Compile Include="Repository\Criteria\IQueryFactory.cs" />
+    <Compile Include="Repository\Criteria\IQueryFor.cs" />
+    <Compile Include="Repository\Specifications\AdHoc.cs" />
+    <Compile Include="Repository\Specifications\QuerySpecification.cs" />
+    <Compile Include="Repository\Criteria\QueryFor.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\RepositoryWrapperBase.cs" />
+    <Compile Include="Repository\Select\OrderByClause.cs" />
+    <Compile Include="Repository\Select\SortDirection.cs" />
+    <Compile Include="Transactions\TransactionMode.cs" />
+    <Compile Include="Transactions\UnitOfWorkManager.cs" />
+    <Compile Include="Transactions\UnitOfWorkScope.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="State\IApplicationState.cs" />
+    <Compile Include="State\ICacheState.cs" />
+    <Compile Include="State\ILocalState.cs" />
+    <Compile Include="State\ILocalStateSelector.cs" />
+    <Compile Include="State\Impl\ApplicationState.cs" />
+    <Compile Include="State\Impl\DefaultLocalStateSelector.cs" />
+    <Compile Include="State\Impl\DefaultSessionStateSelector.cs" />
+    <Compile Include="State\Impl\HttpLocalState.cs" />
+    <Compile Include="State\Impl\HttpRuntimeCache.cs" />
+    <Compile Include="State\Impl\HttpSessionState.cs" />
+    <Compile Include="State\Impl\LocalStateWrapper.cs" />
+    <Compile Include="State\Impl\SessionStateWrapper.cs" />
+    <Compile Include="State\Impl\State.cs" />
+    <Compile Include="State\Impl\ThreadLocalState.cs" />
+    <Compile Include="State\Impl\Utils.cs" />
+    <Compile Include="State\Impl\WcfLocalState.cs" />
+    <Compile Include="State\Impl\WcfSessionState.cs" />
+    <Compile Include="State\ISessionState.cs" />
+    <Compile Include="State\ISessionStateSelector.cs" />
+    <Compile Include="State\IState.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFramework.Common.Core\MFramework.Common.Core.csproj">
+      <Project>{cf36d7c6-91cd-4e7c-a550-328e4de85d9c}</Project>
+      <Name>MFramework.Common.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFramework.Common.DesignByContracts\MFramework.Common.DesignByContracts.csproj">
+      <Project>{da6bfcdc-cea4-4cdb-b927-5f253dceb8cc}</Project>
+      <Name>MFramework.Common.DesignByContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFramework.Common.Proxy\MFramework.Common.Proxy.csproj">
+      <Project>{2edf2e1d-c65c-4246-99a8-217b7cb38810}</Project>
+      <Name>MFramework.Common.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFramework.Common\MFramework.Common.csproj">
+      <Project>{8e2d5264-6256-4d88-81e3-392d19400ca0}</Project>
+      <Name>MFramework.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFramework.Domain\MFramework.Domain.csproj">
+      <Project>{da179622-dde4-464d-9c43-bbc5e696562a}</Project>
+      <Name>MFramework.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFramework.Infrastructure.ServiceLocator.WindsorAdapter\MFramework.Infrastructure.ServiceLocator.WindsorAdapter.csproj">
+      <Project>{20ae3922-30f4-47c5-a86b-c27e320bde65}</Project>
+      <Name>MFramework.Infrastructure.ServiceLocator.WindsorAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFramework.Infrastructure.ServiceLocator\MFramework.Infrastructure.ServiceLocator.csproj">
+      <Project>{a454551d-78aa-4bca-be97-5eba0c2deb56}</Project>
+      <Name>MFramework.Infrastructure.ServiceLocator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
